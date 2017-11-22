@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "https://repo.grails.org/grails/core" }
+    }
+    dependencies {
+        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+    }
+}
+
+version "0.1"
+group "grails.aws.sqs.example"
+
+apply plugin:"org.grails.grails-web"
+
+repositories {
+    mavenLocal()
+    maven { url "https://repo.grails.org/grails/core" }
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-logging"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.grails:grails-core"
+    compile "org.grails:grails-dependencies"
+    compile "org.grails:grails-logging"
+    compile "org.springframework.boot:spring-boot-starter-tomcat"
+    compile "org.grails:grails-web-boot"
+
+    //AWS SDK for Java
+    compile 'com.amazonaws:aws-java-sdk:1.11.228'
+    //Spring JMS implementation
+    compile 'org.springframework:spring-jms'
+    //Amazon SQS Client Libraries for JMS
+    compile 'com.amazonaws:amazon-sqs-java-messaging-lib:1.0.4'
+
+    console "org.grails:grails-console"
+}
+
+bootRun {
+    jvmArgs('-Dspring.output.ansi.enabled=always')
+    addResources = true
+}

@@ -1,0 +1,10 @@
+---
+grails:
+    profile: rest-api
+    codegen:
+        defaultPackage: grails.aws.sqs.example
+amazon:
+    key: IAM-user-key
+    secret: IAM-user-secret
+    sqs:
+        queue: SQS-queue-name
